@@ -1,4 +1,5 @@
 ﻿using Foundation;
+using Sentry.Native.iOS;
 using System;
 using UIKit;
 
@@ -20,6 +21,16 @@ namespace Sentry.Sampels.Native.iOS
         {
             base.DidReceiveMemoryWarning();
             // Release any cached data, images, etc that aren't in use.
+        }
+
+        partial void UIButton197_TouchUpInside(UIButton sender)
+        {
+            SentrySDK.CaptureMessage("click!");
+        }
+
+        partial void UIButton396_TouchUpInside(UIButton sender)
+        {
+            SentrySDK.Crash();
         }
     }
 }

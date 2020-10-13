@@ -46,5 +46,12 @@
   <ItemGroup>
     <ObjcBindingCoreSource Include="Structs.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <NativeReference Include="..\sentry-cocoa\build\Release-iphonesimulator\Sentry.framework">
+      <Kind>Framework</Kind>
+            <!--Worked witout this-->
+<!--      <Frameworks>Foundation</Frameworks>
+-->    </NativeReference>
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />
 </Project>
