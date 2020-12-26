@@ -1,3 +1,0 @@
-[submodule "sentry-cocoa"]
-	path = sentry-cocoa
-	url = git@github.com:getsentry/sentry-cocoa.git
