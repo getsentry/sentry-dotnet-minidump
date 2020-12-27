@@ -18,6 +18,25 @@ If this is useful to you, help us in building this on [Discord, #dotnet](https:/
 
 ![dotnet native crash](.github/dotnet-native-crash.png)
 
+# Build from source
+
+If you want to build all artifacts from source, the steps involved are:
+
+## Init submodules
+
+Run [setup.sh](setup.sh) on macOS or Linux or [setup.bat](setup.bat) on Windows
+This will initialize all git submodules.
+
+## Build native dependencies
+
+Under [sentry-native](sentry-native):
+Run [build.sh](sentry-native/build.sh) on macOS or Linux or [build.bat](sentry-native/build.bat).
+
+Ths will build `sentry-native`, and copy the generated native library and the crashpad_handler to the relevant folder under [sentry-native/sentry-native-artifacts](sentry-native/sentry-native-artifacts). These are bundled in the NuGet package.
+
+On Linux, make sure to install openssl lib, otherwise `crashpad` will fail to compile.
+For example, on Ubuntu: `sudo apt-get install libssl-dev`
+
 ## Resources
 
 * [![Documentation](https://img.shields.io/badge/documentation-sentry.io-green.svg)](https://docs.sentry.io/platforms/dotnet/)
