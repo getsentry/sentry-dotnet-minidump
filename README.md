@@ -20,19 +20,24 @@ If this is useful to you, help us in building this on [Discord, #dotnet](https:/
 
 # Build from source
 
+Requirements: 
+* .NET 5 SDK
+* Whatever is required to build sentry-native (depends on platform)
+* Whatever is required to build CppSharp (depends on platform)
+
 If you want to build all artifacts from source, the steps involved are:
 
 ## Init submodules
 
-Run [setup.sh](setup.sh) on macOS or Linux or [setup.bat](setup.bat) on Windows
+Run [setup.sh](setup.sh) on macOS or Linux or [setup.cmd](setup.cmd) on Windows
 This will initialize all git submodules.
 
 ## Build native dependencies
 
 Under [sentry-native](sentry-native):
-Run [build.sh](sentry-native/build.sh) on macOS or Linux or [build.bat](sentry-native/build.bat).
+Run [build.sh](sentry-native/build.sh) on macOS or Linux or [build.cmd](sentry-native/build.cmd).
 
-Ths will build `sentry-native`, and copy the generated native library and the crashpad_handler to the relevant folder under [sentry-native/sentry-native-artifacts](sentry-native/sentry-native-artifacts). These are bundled in the NuGet package.
+This will build `sentry-native`, and copy the generated native library and the crashpad_handler to the relevant folder under [sentry-native/sentry-native-artifacts](sentry-native/sentry-native-artifacts). These are bundled in the NuGet package.
 
 On Linux, make sure to install openssl lib, otherwise `crashpad` will fail to compile.
 For example, on Ubuntu: `sudo apt-get install libssl-dev`

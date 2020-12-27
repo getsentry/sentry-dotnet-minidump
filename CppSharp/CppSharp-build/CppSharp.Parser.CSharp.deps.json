@@ -1,0 +1,36 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "CppSharp.Parser.CSharp/0.10.6": {
+        "dependencies": {
+          "CppSharp.Runtime": "0.10.6"
+        },
+        "runtime": {
+          "CppSharp.Parser.CSharp.dll": {}
+        }
+      },
+      "CppSharp.Runtime/0.10.6": {
+        "runtime": {
+          "CppSharp.Runtime.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "CppSharp.Parser.CSharp/0.10.6": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "CppSharp.Runtime/0.10.6": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

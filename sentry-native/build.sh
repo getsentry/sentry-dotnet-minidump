@@ -35,6 +35,9 @@ mkdir -p $destination
 echo copying files to $destination
 
 cp sentry-native/install/bin/crashpad_handler $destination
+# Will override on each build and we can diff. Shouldn't change if on the same sha
+# header isn't going to be packed but is used to generate the bindings with CppSharp
+cp sentry-native/install/include/sentry.h $destination/..
 
 if [ $os == osx ]; then
     cp sentry-native/install/lib/libsentry.dylib $destination
