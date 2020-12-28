@@ -9,7 +9,7 @@ namespace Sentry.Minidump.Sample
         {
             SentryMinidump.Init(o =>
             {
-                o.Dsn = "http://80aed643f81249d4bed3e30687b310ab@sentry.garcia.in/5428537";
+                o.Dsn = "https://f689b96c05754247afaf0b6ebc83fd5c@o447951.ingest.sentry.io/5572891";
                 o.Debug = true;
             });
             

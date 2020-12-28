@@ -21,11 +21,26 @@ We can likely lower it to .NET Standard 2.0 if there's demand.
 
 If this is useful to you, help us in building this on [Discord, #dotnet](https://discord.gg/Ww9hbqr).
 
-# macOS
+# Processed Minidumps from Windows, macOS and Linux
+![minidumps from windows macOS and Linux](.github/events-windows-macos-linux.png)
+
+# How does it work?
+
+When `Init` is called, the `sentry-native` SDK [initializes `crashpad`](https://chromium.googlesource.com/crashpad/crashpad/+/HEAD/doc/overview_design.md) which monitors the process for crashes. 
+In the event of a crash, a minidump is generated and uploaded to Sentry. Sentry will notify you with a few seconds of the crash and you can inspect the event in Sentry.
+
+By default Sentry throws away the minidump after processing it.  
+If you'd like to keep the minidump to inspect on Visual Studio, you need to opt-in. Sentry has [extensive docs on attachments, minidumps and data scrubbing](https://docs.sentry.io/platforms/native/enriching-events/attachments/#crash-reports-and-privacy).
+
+# A .NET 5 crash on macOS
 ![dotnet native crash](.github/dotnet-native-crash.png)
 
-# Windows
+# A .NET 5 crash on Windows
 ![dotnet-minidump-windows](.github/dotnet-minidump-windows.png)
+
+# Download the minidump of a crash on Linux
+![download-minidump](.github/download-minidump.png)
+
 # Note On Platform Requirement
 
 This package bundles an executable called `crashpad_handler` (or `crashpad_handler.exe` on Windows). This process creates a memory dump of your .NET process and uploads to Sentry. That means the executable needs to be deployed with your app, and needs `+x` access in order to get started (on macOS and Linux).
