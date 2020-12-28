@@ -8,7 +8,8 @@
 Sentry Minidump SDK for .NET 
 ===========
 
-[![Downloads](https://img.shields.io/nuget/dt/Sentry.Minidump.svg)](https://www.nuget.org/packages/Sentry.Minidump) 
+[![NuGet](https://img.shields.io/nuget/v/Sentry.Minidump.svg)](https://www.nuget.org/packages/Sentry.Minidump)
+[![Downloads](https://img.shields.io/nuget/dt/Sentry.Minidump.svg)](https://www.nuget.org/packages/Sentry.Minidump)
 
 This repository bundles [`sentry-native`](https://github.com/getsentry/sentry-native) with [Google's crashpad](https://chromium.googlesource.com/crashpad/crashpad/) and distribute via NuGet with a .NET API to initialize.
 It allows capturing minidumps of .NET applications caused by native libraries or the .NET runtime itself.
