@@ -21,8 +21,11 @@ We can likely lower it to .NET Standard 2.0 if there's demand.
 
 If this is useful to you, help us in building this on [Discord, #dotnet](https://discord.gg/Ww9hbqr).
 
+# macOS
 ![dotnet native crash](.github/dotnet-native-crash.png)
 
+# Windows
+![dotnet-minidump-windows](.github/dotnet-minidump-windows.png)
 # Note On Platform Requirement
 
 This package bundles an executable called `crashpad_handler` (or `crashpad_handler.exe` on Windows). This process creates a memory dump of your .NET process and uploads to Sentry. That means the executable needs to be deployed with your app, and needs `+x` access in order to get started (on macOS and Linux).
