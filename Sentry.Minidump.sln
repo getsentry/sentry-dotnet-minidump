@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sentry.Minidump.Sample", "sample\Sentry.Minidump.Sample\Sentry.Minidump.Sample.csproj", "{B5BB3359-1C83-4DA3-A78E-E27B95CBB50E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sentry.Minidump", "src\Sentry.Minidump\Sentry.Minidump.csproj", "{ED74CEBF-5161-49B7-A981-838402FB519A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B5BB3359-1C83-4DA3-A78E-E27B95CBB50E}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B5BB3359-1C83-4DA3-A78E-E27B95CBB50E}.Debug|x64.Build.0 = Debug|Any CPU
+		{B5BB3359-1C83-4DA3-A78E-E27B95CBB50E}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B5BB3359-1C83-4DA3-A78E-E27B95CBB50E}.Debug|x86.Build.0 = Debug|Any CPU
+		{B5BB3359-1C83-4DA3-A78E-E27B95CBB50E}.Release|x64.ActiveCfg = Release|Any CPU
+		{B5BB3359-1C83-4DA3-A78E-E27B95CBB50E}.Release|x64.Build.0 = Release|Any CPU
+		{B5BB3359-1C83-4DA3-A78E-E27B95CBB50E}.Release|x86.ActiveCfg = Debug|x64
+		{B5BB3359-1C83-4DA3-A78E-E27B95CBB50E}.Release|x86.Build.0 = Debug|x64
+		{ED74CEBF-5161-49B7-A981-838402FB519A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{ED74CEBF-5161-49B7-A981-838402FB519A}.Debug|x64.Build.0 = Debug|Any CPU
+		{ED74CEBF-5161-49B7-A981-838402FB519A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{ED74CEBF-5161-49B7-A981-838402FB519A}.Debug|x86.Build.0 = Debug|Any CPU
+		{ED74CEBF-5161-49B7-A981-838402FB519A}.Release|x64.ActiveCfg = Release|Any CPU
+		{ED74CEBF-5161-49B7-A981-838402FB519A}.Release|x64.Build.0 = Release|Any CPU
+		{ED74CEBF-5161-49B7-A981-838402FB519A}.Release|x86.ActiveCfg = Debug|x64
+		{ED74CEBF-5161-49B7-A981-838402FB519A}.Release|x86.Build.0 = Debug|x64
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+EndGlobal

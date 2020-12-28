@@ -1,0 +1,48 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.1;net47</TargetFrameworks>
+    <RuntimeIdentifiers>osx-x64;linux-x64;win-x64</RuntimeIdentifiers>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Configurations>Release;Debug</Configurations>
+    <Platforms>x64;x86</Platforms>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <NativeSymbols Include="../../sentry-native/sentry-native-artifacts/**/*" Exclude="**/sentry.h" />
+  </ItemGroup>
+  <Target Name="CopyNativeSymbols" BeforeTargets="BeforeBuild">
+    <Copy SourceFiles="@(NativeSymbols)" DestinationFiles="@(NativeSymbols->'runtimes/%(RecursiveDir)/native/%(Filename)%(Extension)')" Condition="!Exists('$(MSBuildProjectDirectory)/runtimes')" />
+  </Target>
+  <Target Name="CleanNativeSymbols" BeforeTargets="Clean">
+    <RemoveDir Directories="$(MSBuildProjectDirectory)/runtimes" />
+  </Target>
+
+  <ItemGroup>
+    <Content Include="runtimes/**/*.*">
+      <IncludeInPackage>true</IncludeInPackage>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>runtimes</PackagePath>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="CppSharp.Runtime, Version=0.10.6.0, Culture=neutral, PublicKeyToken=null">
+      <HintPath>..\..\CppSharp\CppSharp-build\CppSharp.Runtime.dll</HintPath>
+    </Reference>
+    <None Update="CppSharp.Runtime.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="buildTransitive\net47" />
+    <Folder Include="buildTransitive\netstandard2.1" />
+    <Folder Include="build\netstandard2.1" />
+    <Folder Include="build\net47" />
+  </ItemGroup>
+</Project>

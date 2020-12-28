@@ -18,8 +18,8 @@ fi
 
 dotnet $cppsharp \
     -L $artifacts \
-    -o "../SentryNative" \
-    --on "Sentry.Native" \
+    -o "../sentry" \
+    --on "sentry" \
     -d \
     -a x64 \
     -g "csharp" \
