@@ -27,9 +27,9 @@ If this is useful to you, help us in building this on [Discord, #dotnet](https:/
 
 This package bundles an executable called `crashpad_handler` (or `crashpad_handler.exe` on Windows). This process creates a memory dump of your .NET process and uploads to Sentry. That means the executable needs to be deployed with your app, and needs `+x` access in order to get started (on macOS and Linux).
 
-To test it, build the [sample](samples/Sentry.Minidump.Sample) project and start the executable from the bin folder:
+To test it, build the [sample](sample/Sentry.Minidump.Sample) project and start the executable from the bin folder:
 
-> Set your own DSN on [Program.cs](samples/Sentry.Minidump.Sample/Program.cs) first so the test event goes to **yours Sentry dashboard**.
+> Set your own DSN on [Program.cs](sample/Sentry.Minidump.Sample/Program.cs) first so the test event goes to **yours Sentry dashboard**.
 
 ```
 cd sample/Sentry.Minidump.Sample
