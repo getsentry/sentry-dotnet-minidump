@@ -3,9 +3,9 @@
     
     <ItemGroup>
         <_SentryNativeFile Include="$(MSBuildThisFileDirectory)..\..\CppSharp.*" />
-        <_SentryNativeFile Include="$(MSBuildThisFileDirectory)..\..\runtimes\osx-x64\native\*" />
-        <_SentryNativeFile Include="$(MSBuildThisFileDirectory)..\..\runtimes\win-x64\native\*" />
-        <_SentryNativeFile Include="$(MSBuildThisFileDirectory)..\..\runtimes\linux-x64\native\*" />
+        <_SentryNativeFile Include="$(MSBuildThisFileDirectory)..\..\runtimes\osx-x64\native\*" Condition="'$(Runtimeidentifier)' == '' or '$(Runtimeidentifier)' == 'osx-x64'" />
+        <_SentryNativeFile Include="$(MSBuildThisFileDirectory)..\..\runtimes\win-x64\native\*" Condition="'$(Runtimeidentifier)' == '' or '$(Runtimeidentifier)' == 'win-x64'" />
+        <_SentryNativeFile Include="$(MSBuildThisFileDirectory)..\..\runtimes\linux-x64\native\*" Condition="'$(Runtimeidentifier)' == '' or '$(Runtimeidentifier)' == 'linux-x64'" />
         <Content Include="@(_SentryNativeFile)">
             <Link>%(Dir)%(Filename)%(Extension)</Link>
             <Visible>False</Visible>

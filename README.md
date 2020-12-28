@@ -34,12 +34,6 @@ If you'd like to keep the minidump to inspect on Visual Studio, you need to opt-
 # A .NET 5 crash on macOS
 ![dotnet native crash](.github/dotnet-native-crash.png)
 
-# A .NET 5 crash on Windows
-![dotnet-minidump-windows](.github/dotnet-minidump-windows.png)
-
-# Download the minidump of a crash on Linux
-![download-minidump](.github/download-minidump.png)
-
 # Debug Symbols
 
 In order to stack unwind and symbolicate the minidump, Sentry needs access the symbols. 
@@ -51,16 +45,13 @@ Alternatively you can [add more Symbol Servers to lookup via your project settin
 .NET provides debug symbols of all official releases on a Microsoft symbol server and Sentry includes it out of the box. Currently it's not probing it though so you can add it yourself:
 The endpoint is: `http://msdl.microsoft.com/download/symbols`, with SSQP layout. Sentry will resolve these automatically soon so you won't need to add it yourself.
 
-# Note On Platform Requirement
+# Run The Sample
 
-This package bundles an executable called `crashpad_handler` (or `crashpad_handler.exe` on Windows). This process creates a memory dump of your .NET process and uploads to Sentry. 
-That means the executable needs to be deployed with your app, and needs `+x` access in order to get started (on macOS and Linux).
-NuGet packaging makes sure the file is actually copied to the output directory, and the SDK will attempt to set `+x` when running on macOS and Linux.
-You can opt out of that with `AddExecuteFlagCrashpadHandler=false` but unless you set `+x` yourself, no minidump will be created.
-
-To test it, build the [sample](sample/Sentry.Minidump.Sample) project and start the executable from the bin folder:
+To test it out, build the [sample](sample/Sentry.Minidump.Sample) project and start the executable from the bin folder.
 
 > Set your own DSN on [Program.cs](sample/Sentry.Minidump.Sample/Program.cs) first so the test event goes to **yours Sentry dashboard**.
+
+The example below is for macOS (`osx-x64`). If you're on Windows, use `win-x64`. For Linux, `linux-x64`:
 
 ```
 cd sample/Sentry.Minidump.Sample
@@ -86,6 +77,19 @@ Unhandled exception. System.AccessViolationException: Attempted to read or write
 [69212:36013020:20201227,230059.285955:WARNING process_memory_mac.cc:93] mach_vm_read(0x7ffee9bf8000, 0x2000): (os/kern) invalid address (1)
 [1]    69205 abort      dotnet Sentry.Minidump.Sample.dll
 ```
+
+# A .NET 5 crash on Windows
+![dotnet-minidump-windows](.github/dotnet-minidump-windows.png)
+
+# Download the minidump
+![download-minidump](.github/download-minidump.png)
+
+# Note On Platform Requirement
+
+This package bundles an executable called `crashpad_handler` (or `crashpad_handler.exe` on Windows). This process creates a memory dump of your .NET process and uploads to Sentry. 
+That means the executable needs to be deployed with your app, and needs `+x` access in order to get started (on macOS and Linux).
+NuGet packaging makes sure the file is actually copied to the output directory, and the SDK will attempt to set `+x` when running on macOS and Linux.
+You can opt out of that with `AddExecuteFlagCrashpadHandler=false` but unless you set `+x` yourself, no minidump will be created.
 
 # Build from source
 

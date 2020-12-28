@@ -14,10 +14,7 @@ namespace Sentry.Minidump
             configure?.Invoke(o);
             if (o.Dsn is null)
             {
-                if (o.Debug)
-                {
-                    Console.WriteLine("Sentry Native will be disabled: Dsn not provided.");
-                }
+                o.Log("Sentry Native will be disabled: Dsn not provided.");
                 return;
             }
             
@@ -35,11 +32,38 @@ namespace Sentry.Minidump
             }
             else
             {
-                if (o.AddExecuteFlagCrashpadHandler)
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
                 {
-                    Permission.SetExecute(Path.GetFullPath("crashpad_handler"));
+                    crashpadHandler = "crashpad_handler_osx";
                 }
+                else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+                {
+                    crashpadHandler = "crashpad_handler_linux";
+                } 
             }
+
+            if (!File.Exists(crashpadHandler))
+            {
+                o.Log("Can't find crashpad handler {0}", crashpadHandler);
+                
+                var extraPath = Path.Combine(Path.GetDirectoryName(typeof(SentryMinidump).Assembly.Location) ?? ".", crashpadHandler);
+                if (!File.Exists(extraPath))
+                {
+                    o.Log("Couldn't find crashpad handler at {0}. Will not initialize sentry-native.", extraPath);
+                    return;
+                }
+
+                o.Log("Found at {0}", extraPath);
+                crashpadHandler = extraPath;
+            }
+            
+            if (!RuntimeInformation.IsOSPlatform(OSPlatform.Windows) && o.AddExecuteFlagCrashpadHandler)
+            {
+                o.Log("Setting the execute flag to: {0}", crashpadHandler);
+                Permission.SetExecute(Path.GetFullPath(crashpadHandler));
+            }
+
+            o.Log("Initialize sentry-native with: {0}.", crashpadHandler);
             SentryOptionsSetHandlerPath(options, crashpadHandler);
             SentryInit(options);
         }
@@ -55,7 +79,17 @@ namespace Sentry.Minidump
         /// </summary>
         public bool AddExecuteFlagCrashpadHandler { get; set; } = true;
     }
-
+    
+    internal static class SentryOptionsExtension
+    {
+        public static void Log(this SentryOptions o, string message, params object[] args)
+        {
+            if (o.Debug)
+            {
+                Console.WriteLine(message, args);
+            }
+        }
+    }
     internal static class Permission
     {
         [DllImport("libc", SetLastError = false, EntryPoint = "chmod")]

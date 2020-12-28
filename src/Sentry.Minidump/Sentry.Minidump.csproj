@@ -6,7 +6,7 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Configurations>Release;Debug</Configurations>
     <Platforms>x64;x86</Platforms>
-    <Version>0.1.1</Version>
+    <Version>0.1.2</Version>
     <Deterministic>true</Deterministic>
     
     <Authors>Sentry Team and Contributors</Authors>
@@ -14,7 +14,7 @@
     <Product>Sentry</Product>
     <Description>Official SDK to capture Minidumps with Sentry - Open-source error tracking that helps developers monitor and fix crashes in real time.</Description>
 
-    <PackageTags>Minidump;Sentry;GetSentry;Error-Reporting;Crash-Reporting;Exception-Handling</PackageTags>
+    <PackageTags>Native;Minidump;Sentry;GetSentry;Error-Reporting;Crash-Reporting;Exception-Handling</PackageTags>
     <RepositoryType>git</RepositoryType>
     <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
     <RepositoryUrl>https://github.com/getsentry/sentry-dotnet-minidump</RepositoryUrl>
@@ -33,7 +33,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Include="../../.github/sentry-nuget.png" Pack="true" PackagePath=""/>
+    <None Include="../../.github/sentry-nuget.png" Pack="true" PackagePath="" />
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
