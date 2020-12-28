@@ -30,6 +30,8 @@ namespace Sentry.Minidump
 
             // TODO: Do I need to append .exe on Windows or sentry-native does it?
 
+            // TODO: Give execute access to crashpad_handler if possible.
+
             // When compiled for a specific platform, the package runtimes for the
             // right platform folder gets copied out into it.
             SentryOptionsSetHandlerPath(options, "crashpad_handler");

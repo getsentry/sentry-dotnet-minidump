@@ -6,9 +6,35 @@
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <Configurations>Release;Debug</Configurations>
     <Platforms>x64;x86</Platforms>
+    <Version>0.1.0</Version>
+    <Deterministic>true</Deterministic>
+    
+    <Authors>Sentry Team and Contributors</Authors>
+    <Company>Sentry.io</Company>
+    <Product>Sentry</Product>
+    <Description>Official SDK to capture Minidumps with Sentry - Open-source error tracking that helps developers monitor and fix crashes in real time.</Description>
+
+    <PackageTags>Minidump;Sentry;GetSentry;Error-Reporting;Crash-Reporting;Exception-Handling</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryRoot>$(MSBuildThisFileDirectory)</RepositoryRoot>
+    <RepositoryUrl>https://github.com/getsentry/sentry-dotnet-minidump</RepositoryUrl>
+
+    <PackageIcon>sentry-nuget.png</PackageIcon>
+    <PackageProjectUrl>https://sentry.io</PackageProjectUrl>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+
+    <PackageReleaseNotes>Can be found at: https://github.com/getsentry/sentry-dotnet-minidump/releases</PackageReleaseNotes>
+
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <DebugType>embedded</DebugType>
+    <IncludeSourceRevisionInInformationalVersion>false</IncludeSourceRevisionInInformationalVersion>
+
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="../../.github/sentry-nuget.png" Pack="true" PackagePath=""/>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.0.0" PrivateAssets="All" />
     <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" PrivateAssets="All" />
   </ItemGroup>
 
@@ -28,21 +54,25 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <PackagePath>runtimes</PackagePath>
     </Content>
+    <Content Include="buildTransitive/**/*.*">
+      <IncludeInPackage>true</IncludeInPackage>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>buildTransitive</PackagePath>
+    </Content>
+    <Content Include="build/**/*.*">
+      <IncludeInPackage>true</IncludeInPackage>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <PackagePath>build</PackagePath>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="CppSharp.Runtime, Version=0.10.6.0, Culture=neutral, PublicKeyToken=null">
       <HintPath>..\..\CppSharp\CppSharp-build\CppSharp.Runtime.dll</HintPath>
     </Reference>
-    <None Update="CppSharp.Runtime.dll">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <None Include="..\..\CppSharp\CppSharp-build\CppSharp.Runtime.*">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="buildTransitive\net47" />
-    <Folder Include="buildTransitive\netstandard2.1" />
-    <Folder Include="build\netstandard2.1" />
-    <Folder Include="build\net47" />
-  </ItemGroup>
 </Project>

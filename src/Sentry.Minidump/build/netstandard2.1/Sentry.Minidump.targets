@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-    
+
     <ItemGroup>
+        <_SentryNativeFile Include="$(MSBuildThisFileDirectory)..\..\CppSharp.*" />
         <_SentryNativeFile Include="$(MSBuildThisFileDirectory)..\..\runtimes\osx-x64\native\*" />
         <_SentryNativeFile Include="$(MSBuildThisFileDirectory)..\..\runtimes\win-x64\native\*" />
         <_SentryNativeFile Include="$(MSBuildThisFileDirectory)..\..\runtimes\linux-x64\native\*" />
