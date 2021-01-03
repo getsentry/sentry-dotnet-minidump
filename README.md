@@ -10,6 +10,7 @@ Sentry Minidump SDK for .NET
 
 [![NuGet](https://img.shields.io/nuget/v/Sentry.Minidump.svg)](https://www.nuget.org/packages/Sentry.Minidump)
 [![Downloads](https://img.shields.io/nuget/dt/Sentry.Minidump.svg)](https://www.nuget.org/packages/Sentry.Minidump)
+[![Discord Chat](https://img.shields.io/discord/621778831602221064?logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/PXa5Apfe7K)  
 
 This repository bundles [`sentry-native`](https://github.com/getsentry/sentry-native) with [Google's crashpad](https://chromium.googlesource.com/crashpad/crashpad/) and distribute via NuGet with a .NET API to initialize.
 It allows capturing minidumps of .NET applications caused by native libraries or the .NET runtime itself.
@@ -124,6 +125,6 @@ For example, on Ubuntu: `sudo apt-get install libssl-dev`
 
 * [![Documentation](https://img.shields.io/badge/documentation-sentry.io-green.svg)](https://docs.sentry.io/platforms/dotnet/)
 * [![Forum](https://img.shields.io/badge/forum-sentry-green.svg)](https://forum.sentry.io/c/sdks)
-* [![Discord](https://img.shields.io/discord/621778831602221064)](https://discord.gg/Ww9hbqr)
+* [![Discord Chat](https://img.shields.io/discord/621778831602221064?logo=discord&logoColor=ffffff&color=7389D8)](https://discord.gg/PXa5Apfe7K)  
 * [![Stack Overflow](https://img.shields.io/badge/stack%20overflow-sentry-green.svg)](http://stackoverflow.com/questions/tagged/sentry)
 * [![Twitter Follow](https://img.shields.io/twitter/follow/getsentry?label=getsentry&style=social)](https://twitter.com/intent/follow?screen_name=getsentry)
