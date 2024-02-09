@@ -1,3 +1,10 @@
+# This repository is deprecated in favor of the `Sentry` NuGet package. 
+
+### `sentry-native` is bundled by default on [Sentry]([url](https://github.com/getsentry/sentry-dotnet)) and can capture native crashes for AOT compiled .NET apps.
+
+
+
+
 <p align="center">
   <a href="https://sentry.io/?utm_source=github&utm_medium=logo" target="_blank">
     <picture>
